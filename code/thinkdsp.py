@@ -367,6 +367,8 @@ class Spectrum(_SpectrumParent):
         """
         self.hs[abs(self.fs) > cutoff] *= factor
 
+        return self
+
     def high_pass(self, cutoff, factor=0):
         """Attenuate frequencies below the cutoff.
 
@@ -374,6 +376,8 @@ class Spectrum(_SpectrumParent):
         factor: what to multiply the magnitude by
         """
         self.hs[abs(self.fs) < cutoff] *= factor
+
+        return self
 
     def band_stop(self, low_cutoff, high_cutoff, factor=0):
         """Attenuate frequencies between the cutoffs.
@@ -386,6 +390,8 @@ class Spectrum(_SpectrumParent):
         fs = abs(self.fs)
         indices = (low_cutoff < fs) & (fs < high_cutoff)
         self.hs[indices] *= factor
+
+        return self
 
     def pink_filter(self, beta=1):
         """Apply a filter that would make white noise pink.
@@ -1067,14 +1073,6 @@ class Wave:
         wfile = WavFileWriter(filename, self.framerate)
         wfile.write(self)
         wfile.close()
-
-    def play(self, filename='sound.wav'):
-        """Plays a wave file.
-
-        filename: string
-        """
-        self.write(filename)
-        play_wave(filename)
 
     def make_audio(self):
         """Makes an IPython Audio object.
