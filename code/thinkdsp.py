@@ -51,7 +51,7 @@ class UnimplementedMethodException(Exception):
 class WavFileWriter:
     """Writes wav files."""
 
-    def __init__(self, filename='sound.wav', framerate=11025):
+    def __init__(self, filename='sound.wav', framerate=48000):
         """Opens the file and sets parameters.
 
         filename: string
@@ -628,7 +628,7 @@ class Wave:
         framerate: samples per second
         """
         self.ys = np.asanyarray(ys)
-        self.framerate = framerate if framerate is not None else 11025
+        self.framerate = framerate if framerate is not None else 48000
 
         if ts is None:
             self.ts = np.arange(len(ys)) / self.framerate
@@ -1187,7 +1187,7 @@ class Signal:
         """
         return 0.1
 
-    def plot(self, framerate=11025):
+    def plot(self, framerate=48000):
         """Plots the signal.
 
         The default behavior is to plot three periods.
@@ -1198,7 +1198,7 @@ class Signal:
         wave = self.make_wave(duration, start=0, framerate=framerate)
         wave.plot()
     
-    def make_wave(self, duration=1, start=0, framerate=11025):
+    def make_wave(self, duration=1.0, start=0, framerate=48000):
         """Makes a Wave object.
 
         duration: float seconds
@@ -1627,7 +1627,7 @@ class PinkNoise(_Noise):
         self.amp = amp
         self.beta = beta
 
-    def make_wave(self, duration=1, start=0, framerate=11025):
+    def make_wave(self, duration=1.0, start=0, framerate=48000):
         """Makes a Wave object.
 
         duration: float seconds
@@ -1660,7 +1660,7 @@ def rest(duration):
     return wave
 
 
-def make_note(midi_num, duration, sig_cons=CosSignal, framerate=11025):
+def make_note(midi_num, duration, sig_cons=CosSignal, framerate=48000):
     """Make a MIDI note with the given duration.
 
     midi_num: int MIDI note number
@@ -1677,7 +1677,7 @@ def make_note(midi_num, duration, sig_cons=CosSignal, framerate=11025):
     return wave
 
 
-def make_chord(midi_nums, duration, sig_cons=CosSignal, framerate=11025):
+def make_chord(midi_nums, duration, sig_cons=CosSignal, framerate=48000):
     """Make a chord with the given duration.
 
     midi_nums: sequence of int MIDI note numbers
@@ -1706,7 +1706,7 @@ def midi_to_freq(midi_num):
     return freq
 
 
-def sin_wave(freq, duration=1, offset=0):
+def sin_wave(freq, duration=1.0, offset=0):
     """Makes a sine wave with the given parameters.
 
     freq: float cycles per second
@@ -1720,7 +1720,7 @@ def sin_wave(freq, duration=1, offset=0):
     return wave
 
 
-def cos_wave(freq, duration=1, offset=0):
+def cos_wave(freq, duration=1.0, offset=0):
     """Makes a cosine wave with the given parameters.
 
     freq: float cycles per second

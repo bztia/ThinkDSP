@@ -202,7 +202,7 @@ def main():
     plot_diff_deriv(close)
 
     signal = thinkdsp.SawtoothSignal(freq=50)
-    in_wave = signal.make_wave(duration=0.1, framerate=44100)
+    in_wave = signal.make_wave(duration=0.1, framerate=48000)
     plot_sawtooth_and_spectrum(in_wave, 'diff_int6')
 
     out_wave = in_wave.cumsum()

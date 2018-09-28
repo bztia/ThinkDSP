@@ -32,7 +32,7 @@ class Test(unittest.TestCase):
 
     def testDct(self):
         signal = thinkdsp.CosSignal(freq=2)
-        wave = signal.make_wave(duration=1, framerate=8)
+        wave = signal.make_wave(duration=1.0, framerate=8)
         dct = wave.make_dct()
         
         self.assertAlmostEqual(dct.fs[0], 0.25)
@@ -41,7 +41,7 @@ class Test(unittest.TestCase):
         imp_sig = thinkdsp.Impulses([0.01, 0.4, 0.8, 1.2], 
                                     amps=[1, 0.5, 0.25, 0.1])
         impulses = imp_sig.make_wave(start=0, duration=1.3, 
-                                     framerate=11025)
+                                     framerate=48000)
 
         self.assertAlmostEqual(len(impulses), 14333)
 

@@ -19,7 +19,7 @@ def process_noise(signal, root='white'):
     signal: Signal
     root: string used to generate file names
     """
-    framerate = 11025
+    framerate = 48000
     wave = signal.make_wave(duration=0.5, framerate=framerate)
 
     # 0: waveform
@@ -72,7 +72,7 @@ def plot_gaussian_noise():
     """
     thinkdsp.random_seed(18)
     signal = thinkdsp.UncorrelatedGaussianNoise()
-    wave = signal.make_wave(duration=0.5, framerate=11025)
+    wave = signal.make_wave(duration=0.5, framerate=48000)
     spectrum = wave.make_spectrum()
 
     thinkplot.preplot(2, cols=2)

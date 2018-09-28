@@ -119,7 +119,7 @@ def plot_serial_corr():
 
     for beta in betas:
         signal = thinkdsp.PinkNoise(beta=beta)
-        wave = signal.make_wave(duration=1.0, framerate=11025)
+        wave = signal.make_wave(duration=1.0, framerate=48000)
         corr = serial_corr(wave)
         corrs.append(corr)
 
@@ -147,7 +147,7 @@ def plot_pink_autocorr(beta, label):
     label: string label for the plot
     """
     signal = thinkdsp.PinkNoise(beta=beta)
-    wave = signal.make_wave(duration=1.0, framerate=11025)
+    wave = signal.make_wave(duration=1.0, framerate=48000)
     lags, corrs = autocorr(wave)
     thinkplot.plot(lags, corrs, label=label)
 

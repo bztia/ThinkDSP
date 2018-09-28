@@ -76,7 +76,7 @@ def plot_boxcar():
     """
     # start with a square signal
     signal = thinkdsp.SquareSignal(freq=440)
-    wave = signal.make_wave(duration=1, framerate=44100)
+    wave = signal.make_wave(duration=1.0, framerate=48000)
 
     # and a boxcar window
     window = np.ones(11)
@@ -159,7 +159,7 @@ def plot_gaussian():
     """
     # start with a square signal
     signal = thinkdsp.SquareSignal(freq=440)
-    wave = signal.make_wave(duration=1, framerate=44100)
+    wave = signal.make_wave(duration=1.0, framerate=48000)
     spectrum = wave.make_spectrum()
 
     # and a boxcar window

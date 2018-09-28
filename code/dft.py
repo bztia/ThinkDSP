@@ -106,7 +106,7 @@ def make_figures():
     """
     amps = numpy.array([0.6, 0.25, 0.1, 0.05])
     freqs = [100, 200, 300, 400]
-    framerate = 11025
+    framerate = 48000
 
     ts = numpy.linspace(0, 1, framerate)
     ys = synthesize1(amps, freqs, ts)

@@ -162,7 +162,7 @@ def chirp_spectrogram():
     """Makes a spectrogram of a one-second one-octave linear chirp.
     """
     signal = thinkdsp.Chirp(start=220, end=440)
-    wave = signal.make_wave(duration=1, framerate=11025)
+    wave = signal.make_wave(duration=1.0, framerate=48000)
     spectrogram = wave.make_spectrogram(seg_length=512)
 
     print('time res', spectrogram.time_res)
@@ -199,7 +199,7 @@ def invert_spectrogram():
     """Tests Spectrogram.make_wave.
     """
     signal = thinkdsp.Chirp(start=220, end=440)
-    wave = signal.make_wave(duration=1, framerate=11025)
+    wave = signal.make_wave(duration=1.0, framerate=48000)
     spectrogram = wave.make_spectrogram(seg_length=512)
 
     wave2 = spectrogram.make_wave()

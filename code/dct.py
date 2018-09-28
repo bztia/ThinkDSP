@@ -103,8 +103,8 @@ def synthesize_example():
     amps = np.array([0.6, 0.25, 0.1, 0.05])
     fs = [100, 200, 300, 400]
 
-    framerate = 11025
-    ts = np.linspace(0, 1, 11025)
+    framerate = 48000
+    ts = np.linspace(0, 1, 48000)
     ys = synthesize2(amps, fs, ts)
     wave = thinkdsp.Wave(ys, framerate)
     wave.normalize()
